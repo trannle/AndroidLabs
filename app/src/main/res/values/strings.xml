@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Lab2</string>
+    <string name="hello_message">Hello world!</string>
+    <string name="buttontext">I\'m a Button</string>
+    <string name="login">Login</string>
+    <string name="Login_name">Login name</string>
+    <string name="pass">Password</string>
+    <string name="checkB">CheckBox</string>
+    <string name="what">What does this do?</string>
+    <string name="radio">RadioButton</string>
+    <string name="cam">camera picture</string>
+    <string name="flag">language flag</string>
+    <string name="dialog_message">Do you want to exit?</string>
+    <string name="dialog_title">make a choice</string>
+    <string name="cancel">No, I want to stay</string>
+    <string name="ok">Exit</string>
+</resources>
