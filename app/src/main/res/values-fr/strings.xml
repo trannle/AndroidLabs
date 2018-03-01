@@ -11,4 +11,9 @@
     <string name="radio">Bouton radio</string>
     <string name="cam">photo de la caméra</string>
     <string name="flag">drapeau du langue</string>
+    <string name="startChat">Commence a parler</string>
+    <string name="ok">Exit</string>
+    <string name="send">Envoye</string>
+
+
 </resources>

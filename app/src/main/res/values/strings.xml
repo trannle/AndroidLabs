@@ -14,4 +14,9 @@
     <string name="dialog_title">make a choice</string>
     <string name="cancel">No, I want to stay</string>
     <string name="ok">Exit</string>
+    <string name="startChat">Start Chat</string>
+    <string name="insertData">Enter data</string>
+    <string name="send">Send</string>
+    <string name="pacMan">pacMan</string>
+    <string name="pic">neon</string>
 </resources>

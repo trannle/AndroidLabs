@@ -30,17 +30,17 @@ public class LoginActivity extends Activity {
         emailLogin = findViewById(R.id.editText3);
         emailLogin.setText(userEmail);
 
-        Button logingButton = findViewById(R.id.button2);
-        logingButton.setOnClickListener(new View.OnClickListener() {
+        Button loginButton = findViewById(R.id.button2);
+        loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String login = emailLogin.getText().toString();
                 edit.putString("DefaultEmail",login);
                 edit.commit();
 
+
                 Intent intent = new Intent(LoginActivity.this, StartActivity.class);
                 startActivity(intent);
-
             }
         });
 

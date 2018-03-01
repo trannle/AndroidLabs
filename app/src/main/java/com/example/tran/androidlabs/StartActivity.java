@@ -25,14 +25,28 @@ public class StartActivity extends Activity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(StartActivity.this,  activity_list_items.class);
+                Intent intent = new Intent(StartActivity.this, activity_list_items.class);
                 startActivityForResult(intent, 50);
 
-            }
+         }
 
         });
 
+        Button buttonChat = findViewById(R.id.startChat);
+
+        buttonChat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.i(ACTIVITY_NAME, "User clicked Start Chat");
+
+                Intent intent1 = new Intent(StartActivity.this, ChatWindow.class);
+                startActivity(intent1);
+            }
+        });
+
     }
+
+
     @Override
     protected void onResume(){
         Log.i(ACTIVITY_NAME, "In onResume()");
