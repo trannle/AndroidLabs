@@ -6,7 +6,11 @@
     android:layout_height="match_parent"
     tools:context="com.example.tran.androidlabs.StartActivity">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <TextView
+        android:id="@+id/hellotext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/hello_message"
@@ -17,23 +21,31 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/buttontext" />
+        android:text="@string/buttontext"
+        android:layout_below="@id/hellotext"
+        android:layout_marginTop="10pt"/>
 
     <Button
         android:id="@+id/startChat"
-        android:layout_width="59dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/button"
         android:layout_column="1"
         android:text="@string/startChat"
+        android:layout_marginTop="5pt"
          />
 
     <Button
         android:id="@+id/weatherButton"
-        android:layout_width="189dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_column="1"
         android:text="@string/weather"
+        android:layout_below="@id/startChat"
+        android:layout_marginTop="5pt"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    </RelativeLayout>
 </android.support.constraint.ConstraintLayout>
