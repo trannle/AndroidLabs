@@ -102,7 +102,6 @@ public class activity_list_items extends Activity {
 
     }
 
-
     @Override
     protected void onResume(){
         Log.i(ACTIVITY_NAME, "In onResume()");

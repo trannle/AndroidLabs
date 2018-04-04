@@ -3,6 +3,7 @@ package com.example.tran.androidlabs;
 import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,15 +29,21 @@ public class ChatWindow extends Activity {
     EditText data;
     ArrayList<String> arrayData = new ArrayList<>();
     ChatDatabaseHelper chatHelper;
+    SQLiteDatabase db;
+    Boolean isFrameLayout;
+    Cursor c;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.i("Chat Window", "In onCreate()");
         setContentView(R.layout.activity_chat_window);
+        //check to see if the frameLayout exist on the page with id "rightPanel"
+        this.isFrameLayout = (findViewById(R.id.rightPanel)!=null)?true:false;
 
         this.chatHelper = new ChatDatabaseHelper(this);
-        SQLiteDatabase db = chatHelper.getWritableDatabase();
+        db = chatHelper.getWritableDatabase();
+
 
         this.view = findViewById(R.id.view);
         this.send = findViewById(R.id.buttonSend);
@@ -43,7 +51,7 @@ public class ChatWindow extends Activity {
 
         final ChatAdapter messageAdapter = new ChatAdapter(this);
         view.setAdapter(messageAdapter);
-        Cursor c = db.query(ChatDatabaseHelper.TABLE_NAME, new String[]{ChatDatabaseHelper.KEY_MESSAGE},null,null,null,null,null);
+        this.c = db.query(ChatDatabaseHelper.TABLE_NAME, new String[]{ChatDatabaseHelper.KEY_MESSAGE, ChatDatabaseHelper.KEY_ID},null,null,null,null,null);
         int colIndex = c.getColumnIndex(ChatDatabaseHelper.KEY_MESSAGE);
 
         Log.i("ChatWindow", "Cursor’s  column count =" + c.getColumnCount());
@@ -54,6 +62,16 @@ public class ChatWindow extends Activity {
             Log.i("ChatWindow", "message retrieved from Cursor" + message);
             c.moveToNext();
         }
+       /*view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                Intent goToMsgDetail = new Intent(ChatWindow.this, MessageDetails.class);
+                startActivity(goToMsgDetail);
+
+            }
+        });*/
+
 
         data.setOnKeyListener(new View.OnKeyListener() {
             @Override
@@ -67,12 +85,11 @@ public class ChatWindow extends Activity {
                 }
             });
 
-
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.i("Chat Window", "ChatHelper opened db");
-                SQLiteDatabase db = chatHelper.getWritableDatabase();
+
                 String item = data.getText().toString();
                 arrayData.add(item);
                 ContentValues newData = new ContentValues();
@@ -121,7 +138,9 @@ public class ChatWindow extends Activity {
         }
 
         public long getInt(int position) {
-            return position;
+        /*c.moveToPosition(position);
+        return c.getLong(c.getColumnIndex(ChatDatabaseHelper.KEY_ID));
+*/ return position;
         }
 
 

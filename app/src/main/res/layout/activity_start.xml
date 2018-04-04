@@ -23,11 +23,17 @@
 
     <Button
         android:id="@+id/startChat"
-        android:layout_width="189dp"
+        android:layout_width="59dp"
         android:layout_height="wrap_content"
         android:layout_column="1"
         android:text="@string/startChat"
-        app:layout_constraintEnd_toEndOf="parent"
-
          />
+
+    <Button
+        android:id="@+id/weatherButton"
+        android:layout_width="189dp"
+        android:layout_height="wrap_content"
+        android:layout_column="1"
+        android:text="@string/weather"
+        app:layout_constraintEnd_toEndOf="parent" />
 </android.support.constraint.ConstraintLayout>
